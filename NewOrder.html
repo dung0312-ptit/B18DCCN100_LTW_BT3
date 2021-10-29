@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/bootstrap-grid.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'>
+    <link href="css/index.css" rel="stylesheet">
+
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+            crossorigin="anonymous"></script>
+
+    <title>NotSauce - Đơn Hàng Mới</title>
+</head>
+<body class="bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <a class="navbar-brand" href="index.html">
+        <img src="assets/logo.png" width="250" alt="NotSauce">
+    </a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Mã Đơn hàng">
+                <a href="SearchResult.html" class="btn btn-outline-success my-2 my-sm-0" role="button">Tìm Kiếm</a>
+            </form>
+            <a href="NewOrder.html" class="btn btn-outline-primary my-2 my-sm-0 mx-4" role="button">Tạo Đơn Mới</a>
+        </ul>
+        <div class="dropdown">
+            <a class="dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+                Nguyễn Tuấn Dũng
+                <i class="fa fa-user mx-2" aria-hidden="true"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Thông tin</a>
+                <a class="dropdown-item" href="#">Đổi Mật Khẩu</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Đăng xuất</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<section class="py-3">
+    <div class="container px-1 mx-auto">
+        <form action="index.html" method="get" class="order bg-white">
+            <div class="row mt-5">
+                <div class="col-12 col-lg-6 mt-3">
+                    <div class="d-flex  justify-content-between pr-lg-5 mb-3">
+                        <label class="text-muted" for="name">Sản phẩm</label>
+                        <div>
+                            <div class="d-flex">
+                                <select class="form-control" id="chonsp" name="chonsp">
+                                    <option value="1">Cà ri số 1</option>
+                                    <option value="2">Cà ri cay/option>
+                                    <option value="3">cà ri không cay</option>
+                                </select>
+                                <input class="form-control ml-3 w-25" id="name" name="name" placeholder=" số lượng" type="text"/>
+                            </div>
+                            <a class="text-center" href="#">
+                                <i class="fa fa-plus-square-o fa-2x mt-3" aria-hidden="true"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between pr-lg-5 mb-3">
+                        <label class="text-muted" for="payment_method">Hình thức thanh toán</label>
+                        <select class="form-control w-50" id="payment_method" name="payment_method">
+                            <option value="1">Ship Cod</option>
+                            <option value="2">Đã chuyển khoản</option>
+                        </select>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between pr-lg-5 mb-3">
+                        <label class="text-muted">Tổng tiền</label>
+                        <h5 class="font-weight-lighter font-italic">Tự Động tính</h5>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 mt-3">
+                    <div class="d-flex align-items-center justify-content-between pr-lg-5 mb-3">
+                        <label class="text-muted" for="customer">Tên khách hàng</label>
+                        <input class="form-control w-50" id="customer" name="customer" placeholder="Nhập tên khách hàng"
+                               type="text"/>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between pr-lg-5 mb-3">
+                        <label class="text-muted" for="address">Địa chỉ</label>
+                        <input class="form-control w-50" id="address" name="address" placeholder="Nhập địa chỉ khách hàng"
+                               type="text"/>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between pr-lg-5 mb-3">
+                        <label class="text-muted" for="tel">Số điện thoại</label>
+                        <input class="form-control w-50" id="tel" name="tel" placeholder="Nhập số điện thoại khách hàng"
+                               type="tel"/>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between pr-lg-5 mb-3">
+                        <label class="text-muted" for="email">Email</label>
+                        <input class="form-control w-50" id="email" name="email" placeholder="Nhập số email khách hàng"
+                               type="email"/>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between pr-lg-5 mb-3">
+                        <label class="text-muted" for="note">Lưu ý của khách</label>
+                        <textarea class="form-control w-50" id="note" name="note" placeholder="Nhập lưu ý">
+                    </textarea>
+                    </div>
+                </div>
+                <div class="text-center w-100 ">
+                    <button class="btn btn-warning m-auto text-center mt-3">Thêm mới</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</section>
+</body>
+</html>
