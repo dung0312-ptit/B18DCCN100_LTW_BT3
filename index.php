@@ -39,872 +39,142 @@ require_once 'included/navbar.php';
             <!-- Nội dung -->
             <div class="tab-content">
                 <div class="tab-pane active" id="tab1">
+                    <?php
+                        include 'Conn.php';
 
-                    <!--                    order1-->
-                    <div class="bg-white order">
-                        <div class="justify-content-between d-flex  font-weight-bold">
-                            <div class="d-flex">
-                                <p class="mx-2">Di Thanh Long</p>
-                                <h3 class="mx-2">#00001</h3>
-                                <a href="OrderDetail.html">Xem Chi Tiết</a>
-                            </div>
+                    $sql = "SELECT * FROM orders";
+                    $orders = mysqli_query($conn,$sql);
+                    if(false===$orders){
+                        echo "<script>alert('loi tum lum')</script>";
+                    }
+                    if(mysqli_num_rows($orders) >0 ){
+                       while ($row = mysqli_fetch_array($orders)){
+                           $id = $row['id'];
+                           $name = $row['clientName'];
+                           $status = $row['status'];
+                           $totalPrice = $row['totalPrice'];
 
-                            <div class="d-flex text-primary">
-                                <i class="fa fa-hand-o-left mx-2" aria-hidden="true"></i>
-                                <p>Đang chuẩn bị hàng</p>
-                            </div>
-                        </div>
-                        <table class="table">
-                            <tbody>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/Yai_sThaiPrikKhingCurry_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri Prik Khing<br>x1</td>
-                                <td>50.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/6_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri PaNang<br>x2</td>
-                                <td>30.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/7_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri Massaman<br>x1</td>
-                                <td>35.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" colspan="3">Tổng Tiền</th>
-                                <td>115.000</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <div class="d-flex justify-content-end">
-                            <button class="mx-x">Hoàn tất đóng gói
-                            </button>
-                            <button class="mx-2">Liên Hệ Người Mua</button>
-                            <button class="bg-warning">Hủy Đơn</button>
-                        </div>
-                    </div>
-
-                    <!--                    order2-->
-                    <div class="bg-white order">
-                        <div class="justify-content-between d-flex  font-weight-bold">
-                            <div class="d-flex">
-                                <p class="mx-2">Thiết Nguyễn</p>
-                                <h3>#00002</h3>
-                                <a href="OrderDetail.html" class="mx-2">Xem Chi Tiết</a>
-                            </div>
-                            <div class="d-flex text-primary">
-                                <i class="fa fa-check-circle-o mx-2" aria-hidden="true"></i>
-                                <p>Chờ xác nhận</p>
-                            </div>
-                        </div>
-                        <table class="table">
-                            <tbody>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/Yai_sThaiPrikKhingCurry_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri Prik Khing<br>x1</td>
-                                <td>50.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/6_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri PaNang<br>x2</td>
-                                <td>30.000</td>
-                            </tr>
-
-                            <tr>
-                                <th scope="row" colspan="3">Tổng Tiền</th>
-                                <td>80.000</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <div class="d-flex justify-content-end">
-                            <button class="mx-2">Xác Nhận Đơn Hàng</button>
-                            <button class="mx-2">Liên Hệ Người Mua</button>
-                            <button class="bg-warning">Hủy Đơn</button>
-                        </div>
-                    </div>
-                    <!--order 3-->
-                    <div class="bg-white order">
-                        <div class="justify-content-between d-flex  font-weight-bold">
-                            <div class="d-flex">
-                                <p class="mx-2">Thiết Nguyễn</p>
-                                <h3>#00003</h3>
-                                <a href="OrderDetail.html" class="mx-2">Xem Chi Tiết</a>
-                            </div>
-                            <div class="d-flex text-primary">
-                                <i class="fa fa-check-circle-o mx-2" aria-hidden="true"></i>
-                                <p>Chờ xác nhận</p>
-                            </div>
-                        </div>
-                        <table class="table">
-                            <tbody>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/Yai_sThaiPrikKhingCurry_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri Prik Khing<br>x1</td>
-                                <td>50.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/6_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri PaNang<br>x2</td>
-                                <td>30.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/7_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri Massaman<br>x1</td>
-                                <td>35.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" colspan="3">Tổng Tiền</th>
-                                <td>115.000</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <div class="d-flex justify-content-end">
-                            <button class="mx-2">Xác Nhận Đơn Hàng</button>
-                            <button class="mx-2">Liên Hệ Người Mua</button>
-                            <button class="bg-warning">Hủy Đơn</button>
-                        </div>
-                    </div>
-                    <!--order4-->
-                    <div class="bg-white order">
-                        <div class="justify-content-between d-flex  font-weight-bold">
-                            <div class="d-flex">
-                                <p class="mx-2">Thiết KwangTu PTIT</p>
-                                <h3>#00004</h3>
-                                <a href="OrderDetail.html" class="mx-2">Xem Chi Tiết</a>
-                            </div>
-                            <div class="d-flex text-primary">
-                                <i class="fa fa-truck mx-2" aria-hidden="true"></i>
-                                <p>Đang Giao Hàng</p>
-                            </div>
-                        </div>
-                        <table class="table">
-                            <tbody>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/6_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri PaNang<br>x2</td>
-                                <td>30.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/7_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri Massaman<br>x1</td>
-                                <td>35.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" colspan="3">Tổng Tiền</th>
-                                <td>65.000</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <div class="d-flex justify-content-end">
-                            <button class="mx-2">Liên Hệ Người Mua</button>
-                            <button class="bg-warning">Hủy Đơn</button>
-                        </div>
-                    </div>
-                    <!--                    order 5-->
-                    <div class="bg-white order">
-                        <div class="justify-content-between d-flex  font-weight-bold">
-                            <div class="d-flex">
-                                <p class="mx-2">Ms Kim</p>
-                                <h3>#00005</h3>
-                                <a href="OrderDetail.html" class="mx-2">Xem Chi Tiết</a>
-                            </div>
-                            <div class="d-flex text-primary">
-                                <i class="fa fa-check mx-2" aria-hidden="true"></i>
-                                <p>Giao Hàng Thành Công</p>
-                            </div>
-                        </div>
-                        <table class="table">
-                            <tbody>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/Yai_sThaiPrikKhingCurry_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri Prik Khing<br>x2</td>
-                                <td>100.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" colspan="3">Tổng Tiền</th>
-                                <td>100.000</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <div class="d-flex justify-content-end">
-                            <button class="mx-2">Liên Hệ Người Mua</button>
-
-                        </div>
-                    </div>
-
-                    <!--                    order 6-->
-                    <div class="bg-white order">
-                        <div class="justify-content-between d-flex  font-weight-bold">
-                            <div class="d-flex">
-                                <p class="mx-2">Ms Kim</p>
-                                <h3>#00006</h3>
-                                <a href="OrderDetail.html" class="mx-2">Xem Chi Tiết</a>
-                            </div>
-                            <div class="d-flex text-primary">
-                                <i class="fa fa-check mx-2" aria-hidden="true"></i>
-                                <p>Giao Hàng Thành Công</p>
-                            </div>
-                        </div>
-                        <table class="table">
-                            <tbody>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/Yai_sThaiPrikKhingCurry_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri Prik Khing<br>x1</td>
-                                <td>50.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/6_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri PaNang<br>x2</td>
-                                <td>30.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/7_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri Massaman<br>x1</td>
-                                <td>35.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" colspan="3">Tổng Tiền</th>
-                                <td>115.000</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <div class="d-flex justify-content-end">
-                            <button class="mx-2">Liên Hệ Người Mua</button>
-                        </div>
-                    </div>
-
-                    <!--                    order 7-->
-                    <div class="bg-white order">
-                        <div class="justify-content-between d-flex  font-weight-bold">
-                            <div class="d-flex">
-                                <p class="mx-2">Nguyễn Xuân Xoong</p>
-                                <h3>#0007</h3>
-                                <a href="OrderDetail.html" class="mx-2">Xem Chi Tiết</a>
-                            </div>
-                            <div class="d-flex text-primary">
-                                <i class="fa fa-truck mx-2" aria-hidden="true"></i>
-                                <p>Đang Giao Hàng</p>
-                            </div>
-                        </div>
-                        <table class="table">
-                            <tbody>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/6_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri PaNang<br>x2</td>
-                                <td>30.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/7_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri Massaman<br>x1</td>
-                                <td>35.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" colspan="3">Tổng Tiền</th>
-                                <td>65.000</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <div class="d-flex justify-content-end">
-                            <button class="mx-2">Liên Hệ Người Mua</button>
-                            <button class="bg-warning">Hủy Đơn</button>
-                        </div>
-                    </div>
-
-                    <!--                    order 8-->
-                    <div class="bg-white order">
-                        <div class="justify-content-between d-flex  font-weight-bold">
-                            <div class="d-flex">
-                                <p class="mx-2">Lom Dom Phùng</p>
-                                <h3>#00008</h3>
-                                <a href="OrderDetail.html" class="mx-2">Xem Chi Tiết</a>
-                            </div>
-                            <div class="d-flex text-primary">
-                                <i class="fa fa-ban mx-2" aria-hidden="true"></i>
-                                <p>Đã Hủy</p>
-                            </div>
-                        </div>
-                        <table class="table">
-                            <tbody>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/7_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri Massaman<br>x1</td>
-                                <td>35.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" colspan="3">Tổng Tiền</th>
-                                <td>35.000</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <div class="d-flex justify-content-end">
-                            <button class="mx-2">Liên Hệ Người Mua</button>
-                        </div>
-                    </div>
-
-                    <!--                    order 9-->
-                    <div class="bg-white order">
-                        <div class="justify-content-between d-flex  font-weight-bold">
-                            <div class="d-flex">
-                                <p class="mx-2">Nguyễn Tuấn Dũng</p>
-                                <h3>#00009</h3>
-                                <a href="OrderDetail.html" class="mx-2">Xem Chi Tiết</a>
-                            </div>
-                            <div class="d-flex text-primary">
-                                <i class="fa fa-truck mx-2" aria-hidden="true"></i>
-                                <p>Đang Giao Hàng</p>
-                            </div>
-                        </div>
-                        <table class="table">
-                            <tbody>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/Yai_sThaiPrikKhingCurry_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri Prik Khing<br>x5</td>
-                                <td>50.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/6_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri PaNang<br>x2</td>
-                                <td>30.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/7_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri Massaman<br>x1</td>
-                                <td>35.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" colspan="3">Tổng Tiền</th>
-                                <td>315.000</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <div class="d-flex justify-content-end">
-                            <button class="mx-2">Liên Hệ Người Mua</button>
-                            <button class="bg-warning">Hủy Đơn</button>
-                        </div>
-                    </div>
-
-
-                    <!--                    order 10-->
-                    <div class="bg-white order">
-                        <div class="justify-content-between d-flex  font-weight-bold">
-                            <div class="d-flex">
-                                <p class="mx-2">Hùng Nguyễn</p>
-                                <h3>#00010</h3>
-                                <a href="OrderDetail.html" class="mx-2">Xem Chi Tiết</a>
-                            </div>
-                            <div class="d-flex text-primary">
-                                <i class="fa fa-ban mx-2" aria-hidden="true"></i>
-                                <p>Đã Hủy Bởi Người Mua</p>
-                            </div>
-                        </div>
-                        <table class="table">
-                            <tbody>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/Yai_sThaiPrikKhingCurry_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri Prik Khing<br>x1</td>
-                                <td>50.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/6_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri PaNang<br>x4</td>
-                                <td>60.000</td>
-                            </tr>
-
-                            <tr>
-                                <th scope="row" colspan="3">Tổng Tiền</th>
-                                <td>110.000</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <div class="d-flex justify-content-end">
-                            <button class="mx-2">Liên Hệ Người Mua</button>
-                        </div>
-                    </div>
+                           require 'components/OrderSumary.php';
+                       }
+                    }
+                    ?>
                 </div>
-
                 <!--                tab2 - cho xac nhan-->
-                <div class="tab-pane container fade" id="tab2">
-                    <div class="bg-white order">
-                        <div class="justify-content-between d-flex  font-weight-bold">
-                            <div class="d-flex">
-                                <p class="mx-2">Thiết Nguyễn</p>
-                                <h3>#00002</h3>
-                                <a href="OrderDetail.html" class="mx-2">Xem Chi Tiết</a>
-                            </div>
-                            <div class="d-flex text-primary">
-                                <i class="fa fa-check-circle-o mx-2" aria-hidden="true"></i>
-                                <p>Chờ xác nhận</p>
-                            </div>
-                        </div>
-                        <table class="table">
-                            <tbody>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/Yai_sThaiPrikKhingCurry_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri Prik Khing<br>x1</td>
-                                <td>50.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/6_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri PaNang<br>x2</td>
-                                <td>30.000</td>
-                            </tr>
+                    <div class="tab-pane container fade" id="tab2">
+                        <?php
+                        include 'Conn.php';
 
-                            <tr>
-                                <th scope="row" colspan="3">Tổng Tiền</th>
-                                <td>80.000</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <div class="d-flex justify-content-end">
-                            <button class="mx-2">Xác Nhận Đơn Hàng</button>
-                            <button class="mx-2">Liên Hệ Người Mua</button>
-                            <button class="bg-warning">Hủy Đơn</button>
-                        </div>
+                        $sql = "SELECT * FROM orders WHERE status='0' ";
+                        $orders = mysqli_query($conn,$sql);
+                        if(false===$orders){
+                            echo "<script>alert('loi tum lum')</script>";
+                        }
+                        if(mysqli_num_rows($orders) >0 ){
+                            while ($row = mysqli_fetch_array($orders)){
+                                $id = $row['id'];
+                                $name = $row['clientName'];
+                                $status = $row['status'];
+                                $totalPrice = $row['totalPrice'];
+
+                                require 'components/OrderSumary.php';
+                            }
+                        }
+                        ?>
                     </div>
-                    <!--order 3-->
-                    <div class="bg-white order">
-                        <div class="justify-content-between d-flex  font-weight-bold">
-                            <div class="d-flex">
-                                <p class="mx-2">Thiết Nguyễn</p>
-                                <h3>#00003</h3>
-                                <a href="OrderDetail.html" class="mx-2">Xem Chi Tiết</a>
-                            </div>
-                            <div class="d-flex text-primary">
-                                <i class="fa fa-check-circle-o mx-2" aria-hidden="true"></i>
-                                <p>Chờ xác nhận</p>
-                            </div>
-                        </div>
-                        <table class="table">
-                            <tbody>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/Yai_sThaiPrikKhingCurry_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri Prik Khing<br>x1</td>
-                                <td>50.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/6_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri PaNang<br>x2</td>
-                                <td>30.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/7_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri Massaman<br>x1</td>
-                                <td>35.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" colspan="3">Tổng Tiền</th>
-                                <td>115.000</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <div class="d-flex justify-content-end">
-                            <button class="mx-2">Xác Nhận Đơn Hàng</button>
-                            <button class="mx-2">Liên Hệ Người Mua</button>
-                            <button class="bg-warning">Hủy Đơn</button>
-                        </div>
-                    </div>
-                </div>
 
                 <!--                tab 3 -  chuan bi hang-->
                 <div class="tab-pane container fade" id="tab3">
-                    <div class="bg-white order">
-                        <div class="justify-content-between d-flex  font-weight-bold">
-                            <div class="d-flex">
-                                <p class="mx-2">Di Thanh Long</p>
-                                <h3>#00001</h3>
-                                <a href="OrderDetail.html" class="mx-2">Xem Chi Tiết</a>
-                            </div>
+                    <?php
+                    include 'Conn.php';
 
-                            <div class="d-flex text-primary">
-                                <i class="fa fa-hand-o-left mx-2" aria-hidden="true"></i>
-                                <p>Đang chuẩn bị hàng</p>
-                            </div>
-                        </div>
-                        <table class="table">
-                            <tbody>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/Yai_sThaiPrikKhingCurry_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri Prik Khing<br>x1</td>
-                                <td>50.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/6_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri PaNang<br>x2</td>
-                                <td>30.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/7_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri Massaman<br>x1</td>
-                                <td>35.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" colspan="3">Tổng Tiền</th>
-                                <td>115.000</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <div class="d-flex justify-content-end">
-                            <button class="mx-x">Hoàn tất đóng gói
-                            </button>
-                            <button class="mx-2">Liên Hệ Người Mua</button>
-                            <button class="bg-warning">Hủy Đơn</button>
-                        </div>
-                    </div>
+                    $sql = "SELECT * FROM orders WHERE status='1' ";
+                    $orders = mysqli_query($conn,$sql);
+                    if(false===$orders){
+                        echo "<script>alert('loi tum lum')</script>";
+                    }
+                    if(mysqli_num_rows($orders) >0 ){
+                        while ($row = mysqli_fetch_array($orders)){
+                            $id = $row['id'];
+                            $name = $row['clientName'];
+                            $status = $row['status'];
+                            $totalPrice = $row['totalPrice'];
 
-
+                            require 'components/OrderSumary.php';
+                        }
+                    }
+                    ?>
                 </div>
 
                 <!--                tab4 - giao hang-->
                 <div class="tab-pane container fade" id="tab4">
-                    <div class="bg-white order">
-                        <div class="justify-content-between d-flex  font-weight-bold">
-                            <div class="d-flex">
-                                <p class="mx-2">Thiết KwangTu PTIT</p>
-                                <h3>#00004</h3>
-                                <a href="OrderDetail.html" class="mx-2">Xem Chi Tiết</a>
-                            </div>
-                            <div class="d-flex text-primary">
-                                <i class="fa fa-truck mx-2" aria-hidden="true"></i>
-                                <p>Đang Giao Hàng</p>
-                            </div>
-                        </div>
-                        <table class="table">
-                            <tbody>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/6_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri PaNang<br>x2</td>
-                                <td>30.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/7_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri Massaman<br>x1</td>
-                                <td>35.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" colspan="3">Tổng Tiền</th>
-                                <td>65.000</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <div class="d-flex justify-content-end">
-                            <button class="mx-2">Liên Hệ Người Mua</button>
-                            <button class="bg-warning">Hủy Đơn</button>
-                        </div>
-                    </div>
+                    <?php
+                    include 'Conn.php';
 
-                    <!--                    order 7-->
-                    <div class="bg-white order">
-                        <div class="justify-content-between d-flex  font-weight-bold">
-                            <div class="d-flex">
-                                <p class="mx-2">Nguyễn Xuân Xoong</p>
-                                <h3>#0007</h3>
-                                <a href="OrderDetail.html" class="mx-2">Xem Chi Tiết</a>
-                            </div>
-                            <div class="d-flex text-primary">
-                                <i class="fa fa-truck mx-2" aria-hidden="true"></i>
-                                <p>Đang Giao Hàng</p>
-                            </div>
-                        </div>
-                        <table class="table">
-                            <tbody>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/6_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri PaNang<br>x2</td>
-                                <td>30.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/7_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri Massaman<br>x1</td>
-                                <td>35.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" colspan="3">Tổng Tiền</th>
-                                <td>65.000</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <div class="d-flex justify-content-end">
-                            <button class="mx-2">Liên Hệ Người Mua</button>
-                            <button class="bg-warning">Hủy Đơn</button>
-                        </div>
-                    </div>
-                    <!--                    order 9-->
-                    <div class="bg-white order">
-                        <div class="justify-content-between d-flex  font-weight-bold">
-                            <div class="d-flex">
-                                <p class="mx-2">Nguyễn Tuấn Dũng</p>
-                                <h3>#00009</h3>
-                                <a href="OrderDetail.html" class="mx-2">Xem Chi Tiết</a>
-                            </div>
-                            <div class="d-flex text-primary">
-                                <i class="fa fa-truck mx-2" aria-hidden="true"></i>
-                                <p>Đang Giao Hàng</p>
-                            </div>
-                        </div>
-                        <table class="table">
-                            <tbody>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/Yai_sThaiPrikKhingCurry_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri Prik Khing<br>x5</td>
-                                <td>50.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/6_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri PaNang<br>x2</td>
-                                <td>30.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/7_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri Massaman<br>x1</td>
-                                <td>35.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" colspan="3">Tổng Tiền</th>
-                                <td>315.000</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <div class="d-flex justify-content-end">
-                            <button class="mx-2">Liên Hệ Người Mua</button>
-                            <button class="bg-warning">Hủy Đơn</button>
-                        </div>
-                    </div>
+                    $sql = "SELECT * FROM orders WHERE status='2' ";
+                    $orders = mysqli_query($conn,$sql);
+                    if(false===$orders){
+                        echo "<script>alert('loi tum lum')</script>";
+                    }
+                    if(mysqli_num_rows($orders) >0 ){
+                        while ($row = mysqli_fetch_array($orders)){
+                            $id = $row['id'];
+                            $name = $row['clientName'];
+                            $status = $row['status'];
+                            $totalPrice = $row['totalPrice'];
+
+                            require 'components/OrderSumary.php';
+                        }
+                    }
+                    ?>
                 </div>
 
                 <!--                tab 5 - giao thanh cong-->
                 <div class="tab-pane container fade" id="tab5">
                     <!--                    order 5-->
-                    <div class="bg-white order">
-                        <div class="justify-content-between d-flex  font-weight-bold">
-                            <div class="d-flex">
-                                <p class="mx-2">Ms Kim</p>
-                                <h3>#00005</h3>
-                                <a href="OrderDetail.html" class="mx-2">Xem Chi Tiết</a>
-                            </div>
-                            <div class="d-flex text-primary">
-                                <i class="fa fa-check mx-2" aria-hidden="true"></i>
-                                <p>Giao Hàng Thành Công</p>
-                            </div>
-                        </div>
-                        <table class="table">
-                            <tbody>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/Yai_sThaiPrikKhingCurry_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri Prik Khing<br>x2</td>
-                                <td>100.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" colspan="3">Tổng Tiền</th>
-                                <td>100.000</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <div class="d-flex justify-content-end">
-                            <button class="mx-2">Liên Hệ Người Mua</button>
+                    <?php
+                    include 'Conn.php';
 
-                        </div>
-                    </div>
+                    $sql = "SELECT * FROM orders WHERE status='3' ";
+                    $orders = mysqli_query($conn,$sql);
+                    if(false===$orders){
+                        echo "<script>alert('loi tum lum')</script>";
+                    }
+                    if(mysqli_num_rows($orders) >0 ){
+                        while ($row = mysqli_fetch_array($orders)){
+                            $id = $row['id'];
+                            $name = $row['clientName'];
+                            $status = $row['status'];
+                            $totalPrice = $row['totalPrice'];
 
-                    <!--                    order 6-->
-                    <div class="bg-white order">
-                        <div class="justify-content-between d-flex  font-weight-bold">
-                            <div class="d-flex">
-                                <p class="mx-2">Ms Kim</p>
-                                <h3>#00006</h3>
-                                <a href="OrderDetail.html" class="mx-2">Xem Chi Tiết</a>
-                            </div>
-                            <div class="d-flex text-primary">
-                                <i class="fa fa-check mx-2" aria-hidden="true"></i>
-                                <p>Giao Hàng Thành Công</p>
-                            </div>
-                        </div>
-                        <table class="table">
-                            <tbody>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/Yai_sThaiPrikKhingCurry_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri Prik Khing<br>x1</td>
-                                <td>50.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/6_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri PaNang<br>x2</td>
-                                <td>30.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/7_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri Massaman<br>x1</td>
-                                <td>35.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" colspan="3">Tổng Tiền</th>
-                                <td>115.000</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <div class="d-flex justify-content-end">
-                            <button class="mx-2">Liên Hệ Người Mua</button>
-                        </div>
-                    </div>
+                            require 'components/OrderSumary.php';
+                        }
+                    }
+                    ?>
 
                 </div>
 
                 <!--                tab 6 - da huy-->
                 <div class="tab-pane container fade" id="tab6">
                     <!--                    order 8-->
-                    <div class="bg-white order">
-                        <div class="justify-content-between d-flex  font-weight-bold">
-                            <div class="d-flex">
-                                <p class="mx-2">Lom Dom Phùng</p>
-                                <h3>#00008</h3>
-                                <a href="OrderDetail.html" class="mx-2">Xem Chi Tiết</a>
-                            </div>
-                            <div class="d-flex text-primary">
-                                <i class="fa fa-ban mx-2" aria-hidden="true"></i>
-                                <p>Đã Hủy</p>
-                            </div>
-                        </div>
-                        <table class="table">
-                            <tbody>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/7_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri Massaman<br>x1</td>
-                                <td>35.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" colspan="3">Tổng Tiền</th>
-                                <td>35.000</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <div class="d-flex justify-content-end">
-                            <button class="mx-2">Liên Hệ Người Mua</button>
-                        </div>
-                    </div>
-                    <!--                    order 10-->
-                    <div class="bg-white order">
-                        <div class="justify-content-between d-flex  font-weight-bold">
-                            <div class="d-flex">
-                                <p class="mx-2">Hùng Nguyễn</p>
-                                <h3>#00010</h3>
-                                <a href="OrderDetail.html" class="mx-2">Xem Chi Tiết</a>
-                            </div>
-                            <div class="d-flex text-primary">
-                                <i class="fa fa-ban mx-2" aria-hidden="true"></i>
-                                <p>Đã Hủy Bởi Người Mua</p>
-                            </div>
-                        </div>
-                        <table class="table">
-                            <tbody>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/Yai_sThaiPrikKhingCurry_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri Prik Khing<br>x1</td>
-                                <td>50.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/order1/6_720x.png" width="50" alt="NotSauce">
-                                </th>
-                                <td colspan="2">Cà ri PaNang<br>x4</td>
-                                <td>60.000</td>
-                            </tr>
+                    <?php
+                    include 'Conn.php';
 
-                            <tr>
-                                <th scope="row" colspan="3">Tổng Tiền</th>
-                                <td>110.000</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <div class="d-flex justify-content-end">
-                            <button class="mx-2">Liên Hệ Người Mua</button>
-                        </div>
-                    </div>
+                    $sql = "SELECT * FROM orders WHERE status='4' ";
+                    $orders = mysqli_query($conn,$sql);
+                    if(false===$orders){
+                        echo "<script>alert('loi tum lum')</script>";
+                    }
+                    if(mysqli_num_rows($orders) >0 ){
+                        while ($row = mysqli_fetch_array($orders)){
+                            $id = $row['id'];
+                            $name = $row['clientName'];
+                            $status = $row['status'];
+                            $totalPrice = $row['totalPrice'];
+
+                            require 'components/OrderSumary.php';
+                        }
+                    }
+                    ?>
                 </div>
             </div>
 
