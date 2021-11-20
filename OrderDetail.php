@@ -1,57 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/bootstrap-grid.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/bootstrap-reboot.css">
-    <link rel="stylesheet" href="css/orderDetail.css">
-    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'>
-
-    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
-            crossorigin="anonymous"></script>
-
-    <title>NotSauce - Chi Tiết Đơn Hàng</title>
-</head>
+<?php
+session_start();
+if(!isset($_SESSION['username'])){
+    header("Location: login.php");
+}
+?>
+<?php
+$title = 'Chi tiết đơn hàng';
+require_once 'included/header.php';
+?>
 <body class="bg-light">
-<nav class="navbar navbar-expand-lg navbar-light bg-white">
-    <a class="navbar-brand" href="index.php">
-        <img src="assets/logo.png" width="250" alt="NotSauce">
-    </a>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Mã Đơn hàng">
-                <a href="SearchResult.php" class="btn btn-outline-success my-2 my-sm-0" role="button">Tìm Kiếm</a>
-            </form>
-            <a href="NewOrder.php" class="btn btn-outline-primary my-2 my-sm-0 mx-4" role="button">Tạo Đơn Mới</a>
-        </ul>
-        <div class="dropdown">
-            <a class="dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
-                Nguyễn Tuấn Dũng
-                <i class="fa fa-user mx-2" aria-hidden="true"></i>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Thông tin</a>
-                <a class="dropdown-item" href="#">Đổi Mật Khẩu</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Đăng xuất</a>
-            </div>
-        </div>
-    </div>
-</nav>
+<?php
+require_once 'included/navbar.php';
+?>
 <section class="py-3">
     <div class="container px-1 mx-auto">
         <div class="bg-white condition">
             <div class="row d-flex justify-content-between px-3 top">
                 <div class="d-flex font-weight-bolder">
-                    <h5>Đơn Hàng <span class="text-primary font-weight-bold">#00004</span></h5>
+                    <h5>Đơn Hàng <span class="text-primary font-weight-bold"><?php echo $_GET['id']?></span></h5>
                 </div>
                 <div class="d-flex flex-column text-sm-right font-weight-bolder font-italic">
                     <p class="mb-0">Giao hàng dự kiến <span>01/12/21</span></p>
@@ -84,7 +50,7 @@
         </div>
 
 <!--        dia chi nhan hang, hanh trinh don hang-->
-        <div class="justify-content-between row">
+        <div class="justify-content-between row my-3">
             <div class="col-4 bg-white condition">
                 <h5 class="mt-3 font-weight-bold">Địa Chỉ Giao Hàng</h5>
                 <h6 class="mt-3 font-weight-light">Thiết KwangTuPTIT</h6>

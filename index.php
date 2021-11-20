@@ -111,19 +111,19 @@ require_once 'included/navbar.php';
                     include 'Conn.php';
 
                     $sql = "SELECT * FROM orders WHERE status='2' ";
-                    $orders = mysqli_query($conn,$sql);
+                    $orders = mysqli_query($conn,$sql);    if(mysqli_num_rows($orders) >0 ){
+    while ($row = mysqli_fetch_array($orders)){
+        $id = $row['id'];
+        $name = $row['clientName'];
+        $status = $row['status'];
+        $totalPrice = $row['totalPrice'];
+
+        require 'components/OrderSumary.php';
+    }
                     if(false===$orders){
                         echo "<script>alert('loi tum lum')</script>";
                     }
-                    if(mysqli_num_rows($orders) >0 ){
-                        while ($row = mysqli_fetch_array($orders)){
-                            $id = $row['id'];
-                            $name = $row['clientName'];
-                            $status = $row['status'];
-                            $totalPrice = $row['totalPrice'];
 
-                            require 'components/OrderSumary.php';
-                        }
                     }
                     ?>
                 </div>

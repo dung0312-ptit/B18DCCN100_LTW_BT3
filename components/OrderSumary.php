@@ -3,12 +3,32 @@
         <div class="d-flex">
             <p class="mx-2"><?php echo  $name ?></p>
             <h3 class="mx-2">#<?php echo $id?></h3>
-            <a href="OrderDetail.html">Xem Chi Tiết</a>
+            <a href="<?php echo "OrderDetail.php?id=".$id ?>">Xem chi tiết</a>
+
         </div>
 
         <div class="d-flex text-primary">
             <i class="fa fa-hand-o-left mx-2" aria-hidden="true"></i>
-            <p><?php echo $status ?></p>
+            <p><?php
+
+                switch ($status){
+                    case "0":
+                        echo "Chờ xác nhận";
+                        break;
+                    case "1":
+                        echo "Đang chuẩn bị hàng";
+                        break;
+                    case "2":
+                        echo "Đang giao";
+                        break;
+                    case "3":
+                        echo "Giao hàng thành công";
+                        break;
+                    case "4";
+                        echo "Đã hủy";
+                        break;
+                }
+                ?></p>
         </div>
     </div>
     <?php
@@ -62,36 +82,12 @@
         <?php
             endforeach;
         ?>
-<!--        <tr>-->
-<!--            <th scope="row">-->
-<!--                <img src="assets/order1/Yai_sThaiPrikKhingCurry_720x.png" width="50" alt="NotSauce">-->
-<!--            </th>-->
-<!--            <td colspan="2">Cà ri Prik Khing<br>x1</td>-->
-<!--            <td>50.000</td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <th scope="row">-->
-<!--                <img src="assets/order1/6_720x.png" width="50" alt="NotSauce">-->
-<!--            </th>-->
-<!--            <td colspan="2">Cà ri PaNang<br>x2</td>-->
-<!--            <td>30.000</td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <th scope="row">-->
-<!--                <img src="assets/order1/7_720x.png" width="50" alt="NotSauce">-->
-<!--            </th>-->
-<!--            <td colspan="2">Cà ri Massaman<br>x1</td>-->
-<!--            <td>35.000</td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <th scope="row" colspan="3">Tổng Tiền</th>-->
-<!--            <td>--><?php //echo $totalPrice ?><!--</td>-->
-<!--        </tr>-->
         </tbody>
     </table>
     <div class="d-flex justify-content-end">
-        <button class="mx-x">Hoàn tất đóng gói
-        </button>
+        <form action="">
+            <button class="mx-x">Hoàn tất đóng gói</button>
+        </form>
         <button class="mx-2">Liên Hệ Người Mua</button>
         <button class="bg-warning">Hủy Đơn</button>
     </div>

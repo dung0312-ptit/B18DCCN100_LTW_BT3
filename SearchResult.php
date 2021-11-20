@@ -24,7 +24,7 @@ require_once 'included/navbar.php';
                     <div class="d-flex">
                         <p class="mx-2">Di Thanh Long</p>
                         <h3 class="mx-2">#00001</h3>
-                        <a href="OrderDetail.html">Xem Chi Tiết</a>
+                        <a href="OrderDetail.php">Xem Chi Tiết</a>
                     </div>
 
                     <div class="d-flex text-primary">
@@ -74,7 +74,7 @@ require_once 'included/navbar.php';
                     <div class="d-flex">
                         <p class="mx-2">Hùng Nguyễn</p>
                         <h3>#00010</h3>
-                        <a href="OrderDetail.html" class="mx-2">Xem Chi Tiết</a>
+                        <a href="OrderDetail.php" class="mx-2">Xem Chi Tiết</a>
                     </div>
                     <div class="d-flex text-primary">
                         <i class="fa fa-ban mx-2" aria-hidden="true"></i>
