@@ -121,7 +121,7 @@ require_once 'included/navbar.php';
         require 'components/OrderSumary.php';
     }
                     if(false===$orders){
-                        echo "<script>alert('loi tum lum')</script>";
+                        echo "<script>alert('ko tim thay order')</script>";
                     }
 
                     }

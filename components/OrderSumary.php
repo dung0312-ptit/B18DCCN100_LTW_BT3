@@ -45,7 +45,7 @@
            $items[] = $row;
        }
     }else{
-        echo"<script>alert('Sai tài khoản hoặc mật khẩu')</script>";
+        echo"<script>alert('khong có sản phẩm')</script>";
     }
     ?>
     <table class="table">
@@ -56,7 +56,7 @@
             <?php
                 include 'Conn.php';
 
-                $proID = $item['id'];
+                $proID = $item['productID'];
                 $sql = "SELECT * FROM product WHERE id='$proID'";
                 $result = mysqli_query($conn,$sql);
                 $items = array();
@@ -68,7 +68,7 @@
                        $pro  = $row;
 
                 }else{
-                    echo"<script>alert('Sai tài khoản hoặc mật khẩu')</script>";
+                    echo"<script>alert('khong tim thay mat hang')</script>";
                 }
                 ?>
                 <tr>
