@@ -23,7 +23,7 @@ require_once 'included/navbar.php';
             <?php
             include 'Conn.php';
 
-            $sql = "SELECT * FROM orders where id like ".$search;
+            $sql = "SELECT * FROM orders where id like '%$search%'";
             $orders = mysqli_query($conn,$sql);
             if(false===$orders){
                 echo "<script>alert('loi tum lum')</script>";
