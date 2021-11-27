@@ -1,3 +1,5 @@
+
+
 <div class="bg-white order">
     <div class="justify-content-between d-flex  font-weight-bold">
         <div class="d-flex">
@@ -85,10 +87,47 @@
         </tbody>
     </table>
     <div class="d-flex justify-content-end">
-        <form action="">
-            <button class="mx-x">Hoàn tất đóng gói</button>
+        <form action="<?php echo "components/UpdateStatus.php?id=".$id."&status=".$status ?>" method="post">
+            <button class="mx-x" type="submit" name="update" id="update"
+                <?php
+                switch ($status){
+                    case "0":
+                        echo '>Xác nhận đơn hàng' ;
+                        break;
+                    case "1":
+                        echo '>Hoàn tất đóng gói' ;
+                        break;
+                    case "2":
+                        echo '>Giao hàng thành công' ;
+                        break;
+                    case "4":
+                    case "3":
+                        echo 'hidden>';
+                        break;
+                    default:
+                }
+                ?>
+            </button>
         </form>
         <button class="mx-2">Liên Hệ Người Mua</button>
-        <button class="bg-warning">Hủy Đơn</button>
+
+        <form action="<?php echo "components/Cancel.php?id=".$id ?>" method="post">
+            <button class="mx-x bg-warning" type="submit" name="update" id="update"
+            <?php
+            switch ($status){
+                case "1":
+                case "2":
+                case "0":
+                    echo '>Hủy đơn' ;
+                    break;
+                case "4":
+                case "3":
+                    echo 'hidden>';
+                    break;
+                default:
+            }
+            ?>
+            </button>
+        </form>
     </div>
 </div>

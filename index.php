@@ -11,6 +11,7 @@ require_once 'included/header.php';
 <body class="bg-light">
 <?php
 require_once 'included/navbar.php';
+
 ?>
     <section class="py-3">
         <div class="container px-1 py-5 mx-auto">

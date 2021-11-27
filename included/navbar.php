@@ -12,30 +12,7 @@
             </form>
 <!--            <form class="form-inline my-2 my-lg-0 mx-4" action="" method="post">-->
 <!--                <input class="form-control mr-sm-2" type="text" name="search" placeholder="Mã Đơn hàng">-->
-                <button type="submit" class="btn btn-outline-info" data-toggle="modal" data-target="#myModal">Tra Vận Đơn</button>
-                <div class="modal" id="myModal">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
 
-                            <!-- Modal Header -->
-                            <div class="modal-header">
-                                <h4 class="modal-title">Modal Heading</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-
-                            <!-- Modal body -->
-                            <div class="modal-body">
-                                Modal body..
-                            </div>
-
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
 <!--            </form>-->
 
             <a href="NewOrder.php" class="btn btn-outline-primary my-2 my-sm-0 mx-4" role="button">Tạo Đơn Mới</a>
