@@ -1,5 +1,6 @@
 <?php
 // lay danh sach san pham
+session_start();
 include '../Conn.php';
 $sql = "SELECT * FROM product";
 $result = mysqli_query($conn, $sql);
@@ -20,6 +21,7 @@ if(isset($_POST['save'])){
     $date = new \DateTime();
     $orderid = $date -> getTimestamp();
     $stadate = $date -> format("Y-m-d H:i:s");
+    $intend = $date -> add(new DateInterval('P10D')) ->format("Y-m-d H:i:s");
     $pro = $_POST['chonsp'];
     $amo = $_POST['amount'];
     $paymethod = $_POST['payment_method'];
@@ -41,7 +43,7 @@ if(isset($_POST['save'])){
 
 //    luu don moi
     $done = true;
-    $sql = "INSERT INTO `orders` (`id`, `clientName`, `phoneNum`, `shippingAdd`, `paymentMethod`, `shippingFee`, `clientCharge`, `totalPrice`, `intendTime`, `status`) VALUES ('$orderid', '$clientname', '$phonenum', '$add', '$paymethod', '50000', '1', '$total', '2021-11-23 10:44:13.000000', '0')";
+    $sql = "INSERT INTO `orders` (`id`, `clientName`, `phoneNum`, `shippingAdd`, `paymentMethod`, `shippingFee`, `clientCharge`, `totalPrice`, `intendTime`, `status`) VALUES ('$orderid', '$clientname', '$phonenum', '$add', '$paymethod', '50000', '1', '$total', '$intend', '0')";
     if (mysqli_query($conn, $sql)) {
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -64,8 +66,8 @@ if(isset($_POST['save'])){
             $done= false;
         }
     }
-
     if($done){
+        $_SESSION['message'] ="Thêm đơn thành công";
         header("Location: ../index.php");
     }
 }

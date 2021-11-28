@@ -9,6 +9,12 @@ $title = 'Danh sach don hang';
 require_once 'included/header.php';
 ?>
 <body class="bg-light">
+<script>
+    <?php if(isset($_SESSION['message']) && $_SESSION['message']!=''): ?>
+    toastr.success("<?php echo $_SESSION['message'] ?>", "Hệ thống");
+    <?php unset($_SESSION['message']) ?>
+    <?php endif;?>
+</script>
 <?php
 require_once 'included/navbar.php';
 
@@ -43,7 +49,7 @@ require_once 'included/navbar.php';
                     <?php
                         include 'Conn.php';
 
-                    $sql = "SELECT * FROM orders";
+                    $sql = "SELECT * FROM orders order by id desc ";
                     $orders = mysqli_query($conn,$sql);
                     if(false===$orders){
                         echo "<script>alert('loi tum lum')</script>";
@@ -65,7 +71,7 @@ require_once 'included/navbar.php';
                         <?php
                         include 'Conn.php';
 
-                        $sql = "SELECT * FROM orders WHERE status='0' ";
+                        $sql = "SELECT * FROM orders WHERE status='0' order by id desc";
                         $orders = mysqli_query($conn,$sql);
                         if(false===$orders){
                             echo "<script>alert('loi tum lum')</script>";
@@ -88,7 +94,7 @@ require_once 'included/navbar.php';
                     <?php
                     include 'Conn.php';
 
-                    $sql = "SELECT * FROM orders WHERE status='1' ";
+                    $sql = "SELECT * FROM orders WHERE status='1' order by id desc";
                     $orders = mysqli_query($conn,$sql);
                     if(false===$orders){
                         echo "<script>alert('loi tum lum')</script>";
@@ -111,7 +117,7 @@ require_once 'included/navbar.php';
                     <?php
                     include 'Conn.php';
 
-                    $sql = "SELECT * FROM orders WHERE status='2' ";
+                    $sql = "SELECT * FROM orders WHERE status='2' order by id desc";
                     $orders = mysqli_query($conn,$sql);    if(mysqli_num_rows($orders) >0 ){
     while ($row = mysqli_fetch_array($orders)){
         $id = $row['id'];
@@ -135,7 +141,7 @@ require_once 'included/navbar.php';
                     <?php
                     include 'Conn.php';
 
-                    $sql = "SELECT * FROM orders WHERE status='3' ";
+                    $sql = "SELECT * FROM orders WHERE status='3' order by id desc";
                     $orders = mysqli_query($conn,$sql);
                     if(false===$orders){
                         echo "<script>alert('loi tum lum')</script>";
@@ -160,7 +166,7 @@ require_once 'included/navbar.php';
                     <?php
                     include 'Conn.php';
 
-                    $sql = "SELECT * FROM orders WHERE status='4' ";
+                    $sql = "SELECT * FROM orders WHERE status='4' order by id desc";
                     $orders = mysqli_query($conn,$sql);
                     if(false===$orders){
                         echo "<script>alert('loi tum lum')</script>";

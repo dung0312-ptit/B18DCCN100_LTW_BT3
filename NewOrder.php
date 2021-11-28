@@ -55,8 +55,9 @@ require_once 'included/navbar.php';
 <!--                                    </input>-->
                                 </div>
                             </div>
-                            <input class="btn btn-outline-success my-1" id="add" value="Thêm Sản Phẩm">
-                            </input>
+                            <button class="btn btn-outline-success my-1" type="button" id="add" value="Thêm Sản Phẩm">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </button>
                         </div>
 
 
@@ -105,6 +106,7 @@ require_once 'included/navbar.php';
         $("#pro_field").on('click','#remove',function () {
            $(this).closest('div').remove()
         });
+
     })
 
 </script>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../Conn.php';
 $id = $_GET['id'];
 $status = $_GET['status'] + 1;
@@ -14,7 +15,8 @@ if (mysqli_query($conn, $sql)) {
 
 $sql = "UPDATE `orders` SET `status` = '$status' WHERE `orders`.`id` = $id";
 if (mysqli_query($conn, $sql)) {
-    header("Location:../index.php");
+     $_SESSION['message'] ="Cập nhật thành công";
+       header("Location:../index.php");
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }

@@ -21,6 +21,7 @@ session_start();
             $row = mysqli_fetch_assoc($user);
             $_SESSION['username'] = $row['username'];
             $_SESSION['fullname'] = $row['fullname'];
+            $_SESSION['message'] = "dang nhap thanh cong";
             header("Location:index.php");
         }else{
             echo"<script>alert('Sai tài khoản hoặc mật khẩu')</script>";
