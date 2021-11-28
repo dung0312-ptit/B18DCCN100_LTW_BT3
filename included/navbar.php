@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <a class="navbar-brand" href="index.php">
         <img src="assets/logo.png" width="250" alt="NotSauce">
@@ -6,14 +5,22 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <form class="form-inline my-2 my-lg-0 mr-4" action="SearchResult.php" method="post">
-                <input class="form-control mr-sm-2" type="text" name="search" placeholder="Mã Đơn hàng">
-                  <button type="submit" class="btn btn-outline-success" >Tìm kiếm</button>
-            </form>
-<!--            <form class="form-inline my-2 my-lg-0 mx-4" action="" method="post">-->
-<!--                <input class="form-control mr-sm-2" type="text" name="search" placeholder="Mã Đơn hàng">-->
+            <li class="dropdown">
+                <input class="form-control mr-sm-2" type="text" name="search" placeholder="Mã Đơn hàng" id="search">
+                <div id="output" class="text-light position-absolute rounded table mt-3 " style="min-width: 350px;z-index:1000; background-color: #95999c;">
+                </div>
+<!--                <table class="table table-hover position-absolute">-->
+<!--                    <thead>-->
+<!--                    <tr>-->
+<!--                        <th></th>-->
+<!--                        <th></th>-->
+<!--                    </tr>-->
+<!--                    </thead>-->
+<!--                    <tbody id="output">-->
+<!--                    </tbody>-->
+<!--                </table>-->
+            </li>
 
-<!--            </form>-->
 
             <a href="NewOrder.php" class="btn btn-outline-primary my-2 my-sm-0 mx-4" role="button">Tạo Đơn Mới</a>
         </ul>
@@ -31,3 +38,25 @@
         </div>
     </div>
 </nav>
+<script>
+    $(document).ready(function () {
+            $("#search").keyup(function () {
+                $.ajax({
+                    type:'POST',
+                    url:'http://localhost/B18DCCN100_LTW_BT3/actions/LiveSearch.php',
+                    data: {
+                        name: $("#search").val(),
+                    },
+                    success: function (data) {
+                        if(data.length>0){
+                            $("#output").empty();
+                            $("#output").append(data);
+                        }else {
+                            $("#output").empty();
+                        }
+                    }
+                })
+            })
+
+    })
+</script>
