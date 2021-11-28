@@ -87,7 +87,7 @@
         </tbody>
     </table>
     <div class="d-flex justify-content-end">
-        <form action="<?php echo "components/UpdateStatus.php?id=".$id."&status=".$status ?>" method="post">
+        <form action="<?php echo "actions/UpdateStatus.php?id=".$id."&status=".$status ?>" method="post">
             <button class="mx-x" type="submit" name="update" id="update"
                 <?php
                 switch ($status){
@@ -111,7 +111,7 @@
         </form>
         <button class="mx-2">Liên Hệ Người Mua</button>
 
-        <form action="<?php echo "components/Cancel.php?id=".$id ?>" method="post">
+        <form action="<?php echo "actions/Cancel.php?id=".$id ?>" method="post">
             <button class="mx-x bg-warning" type="submit" name="update" id="update"
             <?php
             switch ($status){

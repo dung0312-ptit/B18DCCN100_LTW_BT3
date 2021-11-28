@@ -35,7 +35,7 @@ require_once 'included/navbar.php';
                     $status = $row['status'];
                     $totalPrice = $row['totalPrice'];
 
-                    require 'components/OrderSumary.php';
+                    require 'included/OrderSumary.php';
                 }
             }
             ?>

@@ -52,7 +52,7 @@ require_once 'included/navbar.php';
 ?>
 <section class="py-3">
     <div class="container px-1 mx-auto">
-        <?php require_once 'components/OrderTracking.php' ?>
+        <?php require_once 'included/OrderTracking.php' ?>
 
 
         <div class="condition bg-white mb-5 p-2">
