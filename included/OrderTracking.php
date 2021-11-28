@@ -11,39 +11,55 @@
     <!-- Add class 'active' to progress -->
     <div class="mt-5 mx-5">
         <div class="progress">
-            <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: <?php
+            <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="<?php
                     switch ($order['status']){
                         case '0':
-                            echo '25%';
+                            echo 'width: 20%';
                             break;
                         case '1':
-                            echo '50%';
+                            echo 'width:45%';
                             break;
                         case '2':
-                            echo '75%';
+                            echo 'width:70%';
                             break;
+                        case '4':
                         case '3':
-                            echo '100%';
+                            echo 'width:100%';
                             break;
+
                     }
             ?>"></div>
         </div>
         <div class="d-flex justify-content-between mt-4 font-weight-light ">
             <div class="d-flex align-items-center">
-                <i class="fa fa-check-circle-o mx-2 fa-3x" aria-hidden="true"></i>
+                <i class="fa fa-check-circle-o mx-2 fa-2x" aria-hidden="true"></i>
                 <h6 >Chờ xác nhận</h6>
             </div>
             <div class="d-flex align-items-center">
-                <i class="fa fa-hand-o-left mx-2 fa-3x" aria-hidden="true"></i>
+                <i class="fa fa-suitcase mx-2 fa-2x" aria-hidden="true"></i>
                 <h6 >Đang chuẩn bị hàng</h6>
             </div>
             <div class="d-flex align-items-center">
-                <i class="fa fa-truck mx-2 fa-3x" aria-hidden="true"></i>
+                <i class="fa fa-truck mx-2 fa-2x" aria-hidden="true"></i>
                 <h6 >Đang Giao Hàng</h6>
             </div>
             <div class="d-flex align-items-center">
-                <i class="fa fa-check mx-2 fa-3x" aria-hidden="true"></i>
-                <h6 >Giao Hàng Thành Công</h6>
+                <?php
+                    switch ($order['status']){
+                        case '0':
+                        case '1':
+                        case '2':
+                        case '3':
+                            echo " <i class='fa fa-check mx-2 fa-2x' aria-hidden='true'></i>
+                                   <h6 >Giao Hàng Thành Công</h6>";
+                            break;
+                        case '4':
+                            echo " <i class='fa fa-ban mx-2 fa-2x' aria-hidden='true'></i>
+                                   <h6 >Đã hủy</h6>";
+                            break;
+                    }
+                ?>
+
             </div>
         </div>
     </div>
