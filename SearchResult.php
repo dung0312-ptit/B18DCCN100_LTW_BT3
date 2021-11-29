@@ -3,7 +3,7 @@ session_start();
 if(!isset($_SESSION['username'])){
     header("Location: login.php");
 }
-$search = $_POST['search'];
+$search = $_GET['search'];
 ?>
 <?php
 $title = 'Tìm kiếm đơn';
