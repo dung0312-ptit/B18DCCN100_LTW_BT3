@@ -74,6 +74,7 @@ require_once 'included/navbar.php';
 </section>
 <script type="text/javascript">
     google.charts.load('current', {packages: ['corechart', 'bar']});
+    google.charts.load('current', {'packages':['line']});
     google.charts.setOnLoadCallback(load_data);
 
     function load_data(){
@@ -169,7 +170,7 @@ require_once 'included/navbar.php';
             bars: 'horizontal' // Required for Material Bar Charts.
         };
 
-        var chart = new google.charts.Bar(document.getElementById('barchart_date_price'));
+        var chart = new google.charts.Line(document.getElementById('barchart_date_price'));
         function selectHandler() {
             var selectedItem = chart.getSelection()[0];
             console.log(selectedItem);
@@ -191,7 +192,7 @@ require_once 'included/navbar.php';
             }
         }
         google.visualization.events.addListener(chart, 'select', selectHandler);
-        chart.draw(data, google.charts.Bar.convertOptions(options));
+        chart.draw(data, google.charts.Line.convertOptions(options));
     }
 </script>
 
