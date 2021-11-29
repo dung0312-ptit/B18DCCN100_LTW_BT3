@@ -5,22 +5,15 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="dropdown">
-                <input class="form-control mr-sm-2" type="text" name="search" placeholder="Mã Đơn hàng" id="search">
-                <div id="output" class="text-light position-absolute rounded table mt-3 " style="min-width: 350px;z-index:1000; background-color: #95999c;">
-                </div>
-<!--                <table class="table table-hover position-absolute">-->
-<!--                    <thead>-->
-<!--                    <tr>-->
-<!--                        <th></th>-->
-<!--                        <th></th>-->
-<!--                    </tr>-->
-<!--                    </thead>-->
-<!--                    <tbody id="output">-->
-<!--                    </tbody>-->
-<!--                </table>-->
-            </li>
+            <form class="d-flex" id="form" action="SearchResult.php" method="post">
+                <li class="dropdown">
+                    <input class="form-control mr-sm-2" type="text" name="search" placeholder="Mã Đơn hàng" id="search">
+                    <div id="output" class="text-light position-absolute rounded table mt-3 " style="min-width: 350px;z-index:1000; background-color: #95999c;">
+                    </div>
+                </li>
 
+                <button class="btn btn-outline-success my-2 my-sm-0 mx-4" type="submit" id="searchBtn">Tìm kiếm</button>
+            </form>
 
             <a href="NewOrder.php" class="btn btn-outline-primary my-2 my-sm-0 mx-4" role="button">Tạo Đơn Mới</a>
         </ul>
@@ -57,6 +50,5 @@
                     }
                 })
             })
-
     })
 </script>
