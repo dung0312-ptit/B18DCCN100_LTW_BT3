@@ -79,7 +79,7 @@
                     </th>
                     <td><?php echo $pro['name'] ?></td>
                     <td><?php echo $item['amount'] ?></td>
-                    <td><?php echo $item['totalPrice'] ?></td>
+                    <td><?php echo number_format($item['totalPrice'])?></td>
                 </tr>
         <?php
             endforeach;

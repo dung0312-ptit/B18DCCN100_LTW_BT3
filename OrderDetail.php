@@ -96,8 +96,8 @@ require_once 'included/navbar.php';
                         </th>
                         <td colspan="2"><?php echo $pro['name'] ?></td>
                         <td><?php echo $item['amount'] ?></td>
-                        <td><?php echo $pro['price']?></td>
-                        <td><?php echo $item['totalPrice'] ?></td>
+                        <td><?php echo number_format($pro['price'])?></td>
+                        <td><?php echo number_format($item['totalPrice']) ?></td>
                     </tr>
                 <?php
                 endforeach;
@@ -105,7 +105,7 @@ require_once 'included/navbar.php';
 
                 <tr>
                     <th scope="row" colspan="5" class="text-right pr-5">Tổng Tiền</th>
-                    <td class="text-warning font-weight-bolder"><?php echo $order['totalPrice']?></td>
+                    <td class="text-warning font-weight-bolder"><?php echo number_format($order['totalPrice'])?></td>
                 </tr>
                 <tr>
                     <th scope="row" colspan="4" class="text-right pr-5">Thanh Toán</th>
@@ -117,7 +117,7 @@ require_once 'included/navbar.php';
                 <tr>
                     <th scope="row" colspan="4" class="text-right pr-5">Phí Ship</th>
                     <td colspan="2">
-                        <?php echo $order['shippingFee']?>
+                        <?php echo number_format($order['shippingFee'])?>
                     </td>
                 </tr>
                 <tr>
@@ -141,10 +141,10 @@ require_once 'included/navbar.php';
                         <h4>   <?php
                             switch ($order['clientCharge']){
                                 case '1':
-                                    echo $order['totalPrice'];
+                                    echo number_format($order['totalPrice']);
                                     break;
                                 case '0':
-                                    echo $order['totalPrice'] - $order['shippingFee'];
+                                    echo number_format($order['totalPrice']) - number_format($order['shippingFee']);
                                     break;
                             }
                             ?></h4>

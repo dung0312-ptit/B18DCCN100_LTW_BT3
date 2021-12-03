@@ -32,7 +32,7 @@ if(isset($_POST['code'])&&$_POST['code']==11){
 		          <td>".$row['clientName']."</td>
 		          <td>".$row['phoneNum']."</td>
 		          <td>".$row['shippingAdd']."</td>
-		          <td>".$row['totalPrice']."</td>
+		          <td>".number_format($row['totalPrice'])."</td>
 		          <td><a href='OrderDetail.php?id=".$row['id']."'>Xem chi tiết</a></td>
 		        </tr>";
         }
@@ -40,7 +40,7 @@ if(isset($_POST['code'])&&$_POST['code']==11){
 }
 
 if(isset($_POST['code'])&&$_POST['code']==12){
-    $sql ="SELECT o.id,o.clientName,o.phoneNum,o.shippingAdd,o.totalPrice from orders as o, status as s WHERE o.id = s.ordersID AND o.status!=4 AND s.status=0 AND s.time LIKE '%".$_POST['key']."%'";
+    $sql ="SELECT o.id,o.clientName,o.phoneNum,o.shippingAdd,o.totalPrice from orders as o, status as s WHERE o.id = s.ordersID AND o.status!=4 AND s.status=0 AND s.time LIKE '%".$_POST['key']."%' order BY o.totalPrice DESC";
     $rs = mysqli_query($conn,$sql);
     if(mysqli_num_rows($rs)>0) {
         while ($row = mysqli_fetch_assoc($rs)) {
@@ -50,7 +50,7 @@ if(isset($_POST['code'])&&$_POST['code']==12){
 		          <td>".$row['clientName']."</td>
 		          <td>".$row['phoneNum']."</td>
 		          <td>".$row['shippingAdd']."</td>
-		          <td>".$row['totalPrice']."</td>
+		          <td>".number_format($row['totalPrice'])."</td>
 		          <td><a href='OrderDetail.php?id=".$row['id']."'>Xem chi tiết</a></td>
 		        </tr>";
         }
