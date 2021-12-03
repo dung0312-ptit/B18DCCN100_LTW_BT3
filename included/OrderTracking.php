@@ -11,20 +11,22 @@
     <!-- Add class 'active' to progress -->
     <div class="mt-5 mx-5">
         <div class="progress">
-            <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="<?php
+            <div class="progress-bar progress-bar-striped " role="progressbar" style="<?php
                     switch ($order['status']){
                         case '0':
-                            echo 'width: 20%';
+                            echo 'width: 20%;background-color:success';
                             break;
                         case '1':
-                            echo 'width:45%';
+                            echo 'width:45%;background-color:success';
                             break;
                         case '2':
-                            echo 'width:70%';
+                            echo 'width:70%;background-color:success';
                             break;
                         case '4':
+                            echo 'width:100% ; background-color:red';
+                            break;
                         case '3':
-                            echo 'width:100%';
+                            echo 'width:100% ; background-color:success';
                             break;
 
                     }
